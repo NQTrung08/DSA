@@ -35,11 +35,24 @@ class BST {
     }
   }
 
-
+  contains(value) {
+    if(!this.root) return false
+    let temp = this.root
+    while(temp) {
+      if(value === temp.value) return true
+      if(value < temp.value) temp = temp.left
+      else temp = temp.right
+    }
+    return false
+  }
 }
 
 const bst = new BST();
 bst.insert(10);
 bst.insert(5);
-// bst.insert(15);
+bst.insert(15);
+bst.insert(3);
+bst.insert(7);
+bst.insert(13);
+console.log(bst.contains(7)) // true
 console.log(bst)
