@@ -54,6 +54,20 @@ class StackArray {
     // xóa phần tử cuối mảng
     return this.stack.pop()
   }
+  get length() {
+    return this.stack.length
+  }
+  get(index) {
+    return this.stack[index]
+  }
+
+  set(index, value) {
+    if (index >= 0 && index < this.length) {
+      this.stack[index] = value;
+      return true;
+    }
+    return false;
+  }
 }
 
 const stackArray = new StackArray();
