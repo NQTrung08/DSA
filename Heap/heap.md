@@ -39,15 +39,17 @@
      - `Node cha` = `vị trí node con // 2`
 
 2. Các thao tác trên Heap
-   a. Thêm phần tử vào Heap (Insert)
+   a. Thêm phần tử vào Heap (Insert) - Heapify Up
       1. Thêm phần tử mới vào cuối mảng.
       2. So sánh phần tử với cha của nó, nếu vi phạm tính chất heap thì hoán đổi (up-heap / heapify-up).
       3. `Lặp lại` quá trình này cho đến khi heap hợp lệ.
 
-   b. Xóa phần tử gốc (Extract Max/Min)
+   b. Xóa phần tử gốc (Extract Max/Min) - Heapify Down
       1. Hoán đổi phần tử gốc với phần tử cuối cùng trong mảng.
       2. Xóa phần tử cuối cùng (là giá trị cũ của gốc).
       3. So sánh phần tử mới ở gốc với các con của nó, nếu vi phạm tính chất heap thì hoán đổi với con lớn hơn (đối với max heap) hoặc con nhỏ hơn (đối với min heap) (down-heap / heapify-down).
+         1. khi hoán đổi thì kiểm tra node trái và phải, node nào lớn nhất thì hoán đổi
+         2. Lặp lại cho đến khi không còn node trái - phải nào lớn hơn
       4. `Lặp lại` cho đến khi heap hợp lệ.
 
    c. Cập nhật giá trị một phần tử
@@ -57,3 +59,19 @@
    d. Chuyển đổi một mảng thành Heap (Heapify)
       1. Duyệt từ nửa cuối mảng về đầu, thực hiện down-heap cho từng phần tử.
       2. Độ phức tạp 𝑂(𝑛) nhanh hơn so với việc thêm từng phần tử với 𝑂(𝑛log𝑛).
+
+## Hàng đợi ưu tiên **(Priority Queues)**
+
+### Đặc điểm của hàng đợi ưu tiên
+
+   1. Giống như hàng đơi thông thường nhưng phần tử có `ưu tiên cao hơn` sẽ được lấy ra trước, bất kể thứ tự vào.
+   2. Mỗi phần tử trong hàng đợi ưu tiên đều có 1 giá trị ưu tiên đi kèm.
+   3. Khi thêm phần tử vào, cấu trúc dữ liệu sẽ sắp xếp phần tử đó theo đúng thứ tự ưu tiên.
+   4. Khi lấy phần tử ra `(pop)`, phần tử ưu tiên cao nhất sẽ được lấy
+
+### Triển khai hàng đợi ưu tiên
+
+1. ❌ Ta có thể triển khai với mảng, linked list để lặp qua các phần tử trong danh sách, phần tử nào lớn thì ta lấy ra => `mất O(n)` => `không hiểu quả`.
+2. ✅ Dùng Heap:
+   1. Với `max-heap`: luôn giữ phần tử có `ưu tiên lớn nhất` ở đầu
+   2. Với `min-heap`: luôn giữ phần tử có `ưu tiên nhỏ nhất` ở đầu

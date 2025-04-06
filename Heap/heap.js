@@ -27,6 +27,37 @@ class Heap {
     }
   }
 
+  #sinkDown(index) {
+    let maxIndex = index
+    let size = this.#heap.length
+    while(true) {
+      let leftIndex = this.#leftChild(index)
+      let rightIndex = this.#rightChild(index)
+
+      if(leftIndex < size && this.#heap[leftIndex] > this.#heap[maxIndex]) {
+        maxIndex = leftIndex
+      }
+      if(rightIndex < size && this.#heap[rightIndex] > this.#heap[maxIndex]) {
+        maxIndex = rightIndex
+      }
+      if(maxIndex !== index) {
+        this.#swap(index, maxIndex)
+        index = maxIndex
+      }
+      if(maxIndex === index) break
+    }
+  }
+  remove() {
+    if(this.length === 0) return null
+    if(this.length === 1) return this.#heap.pop()
+    let maxValue = this.#heap[0]
+    this.#heap[0] = this.#heap.pop()
+    this.#sinkDown(0)
+    return maxValue
+
+
+  }
+
 }
 
 const myHeap = new Heap()
@@ -41,3 +72,8 @@ console.log(myHeap.getHeap()) // [ 8, 3, 5, 2, 1, 4]
 
 myHeap.insert(6)
 console.log(myHeap.getHeap()) // [ 8, 3, 6, 2, 1, 4, 5]
+
+console.log(myHeap.remove()) // 8
+
+
+console.log(myHeap.getHeap()) // [ 6, 3, 5, 2, 1, 4]

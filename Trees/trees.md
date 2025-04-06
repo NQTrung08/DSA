@@ -4,6 +4,39 @@
 2. Mỗi con chỉ có duy nhất 1 nút cha
 3. không có chu trình trong cây
 
+## Thuật ngữ trong cây
+
+1. node: là 1 thực thể chứa key hoặc value và các con trỏ tới các node con của nó.
+   1. Node cuối cùng của mỗi đường dẫn gọi là node lá hoặc `external node`
+   2. Node có ít nhất một node con gọi là `internal node`
+2. Cạnh: là đường liên kết giữa 2 node bất kỳ
+  ![edge](image-1.png)
+3. node gốc: là 1 node trên cùng của cây
+4. Chiều cao của 1 node: là số cạnh từ node đó đến node lá sâu nhất
+5. Độ sâu của 1 node: là `số cạnh` từ root đến node đó
+6. Chiều cao 1 cây: là số cạnh từ root đến node lá sâu nhất.
+   ![độ sâu và chiều cao](image-2.png)
+7. Bậc của node là tổng số  nhánh của node đó
+8. Rừng (forest) là tập hợp của nhiều cây riêng biệt
+   1. Nói cách khác, rừng là tập hợp các cấu trúc cây không liên kết với nhau.
+   2. 📌 Nếu bạn xóa gốc của 1 cây, các cây con sẽ tạo thành `rừng`
+
+## Các công thức về cây
+
+1. Số cạnh và nút: `SỐ CẠNH = SỐ NODE - 1`
+2. CÂY NHỊ PHÂN
+   1. Số node `tối đa` ở mức `k`(tính từ 0): `số node ở mức k = 2^k`
+   2. Số node `tối đa` của cây nhị phân với chiều cao `h`: `số node tối đa = 2^(h + 1) - 1`
+3. CÂY NHỊ PHÂN HOÀN CHỈNH:
+   1. Với `N` node, chiều cao `h` của cây: h = Math.floor(log<sub>2</sub>(N))
+4. CÂY NHỊ PHÂN ĐẦY ĐỦ:
+   1. Số lá `L` và tổng số node `N` có quan hệ: `N = 2L - 1`
+   2. Số node bậc 2: `số node bậc 2 =  L - 1`
+5. CÂY TỔNG QUÁT ( BẤT KỲ BẬC NÀO)
+   1. Tổng bậc của tất cả các node: `∑ bậc các node = 2×(số cạnh) = 2(N - 1)`
+6. Tóm tắt nhanh 🌲
+![CÔNG THỨC CỦA TREE](image-3.png)
+
 ## Cây nhị phân
 
 1. Cây nhị phân (Binary Tree) bản chất là 1 danh sách liên kết và có 2 con trỏ left và right
@@ -49,7 +82,7 @@
 - Khi đó, các thao tác đều có độ phức tạp trung bình là 0(N)
 
 | Operation | Time complexity (Balanced BST) |
-|-----------|--------------------------------|
+| --------- | ------------------------------ |
 | Lookup    | O(log N)                       |
 | Insert    | O(log N)                       |
 | Remove    | O(log N)                       |

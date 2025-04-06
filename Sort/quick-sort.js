@@ -9,13 +9,13 @@
 
 // TH1: pivot ở đầu
 
-// người ta dùng biến i lặp qua từng ptu và so sánh với pivot
+// 1. người ta dùng biến i lặp qua từng ptu và so sánh với pivot
 
-// ta có biến swag bắt đầu từ vị trí pivot
+// 2. ta có biến swag bắt đầu từ vị trí pivot
 
-// nếu có ptu nhỏ hơn pivot => ta sẽ di chuyển swag + 1 vị trí => sau đó đổi chỗ swag với ptu đó
-
-// sau khi đã duyệt hết mảng => ta sẽ đổi vị trí của pivot và swag
+// 3. nếu có ptu nhỏ hơn pivot => ta sẽ di chuyển swag + 1 vị trí => sau đó đổi chỗ swag với ptu đó
+  // ( ta sẽ hiểu là swap như là 1 con hàng giả của pivot để mang đi so sanhs và sau này khi kết thúc mới thay đổi thành pivot)
+// 4. sau khi đã duyệt hết mảng => ta sẽ đổi vị trí của pivot và swag
 
 function swag(array, fristIndex, secondIndex) {
   let temp = array[fristIndex];
