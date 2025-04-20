@@ -25,6 +25,11 @@
                2     3
               / \    /
               4  5  6
+
+              15
+            8        12
+         5     7   10   11
+      3    2 6   4 9 1 
     ```
 
    1. ➡️ mảng tương ứng sẽ là: `[1, 2, 3, 4, 5, 6]`.
@@ -48,7 +53,7 @@
       1. Hoán đổi phần tử gốc với phần tử cuối cùng trong mảng.
       2. Xóa phần tử cuối cùng (là giá trị cũ của gốc).
       3. So sánh phần tử mới ở gốc với các con của nó, nếu vi phạm tính chất heap thì hoán đổi với con lớn hơn (đối với max heap) hoặc con nhỏ hơn (đối với min heap) (down-heap / heapify-down).
-         1. khi hoán đổi thì kiểm tra node trái và phải, node nào lớn nhất thì hoán đổi
+         1. khi hoán đổi thì kiểm tra node trái và phải, node nào lớn nhất thì hoán đổi (max heap) - node nào bé hơn thì hoán đổi (min heap)
          2. Lặp lại cho đến khi không còn node trái - phải nào lớn hơn
       4. `Lặp lại` cho đến khi heap hợp lệ.
 
