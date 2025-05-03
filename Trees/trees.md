@@ -105,4 +105,4 @@
   ```
 
 - Tìm kiểm 1 phần tử mất O(N)
-- Chèn hoặc xóa cũng mất O(N) 
+- Chèn hoặc xóa cũng mất O(N)
