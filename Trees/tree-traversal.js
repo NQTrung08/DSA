@@ -11,6 +11,23 @@ class BST {
   constructor() {
     this.root = null;
   }
+
+  BFS() {
+    let queue = []
+    let result = []
+    let currentNode = this.root
+    queue.push(currentNode)
+
+    while(queue.length) {
+      currentNode = queue.shift()
+      result.push(currentNode.value)
+      if(currentNode.left) queue.push(currentNode.left)
+      if(currentNode.right) queue.push(currentNode.right)
+    }
+
+    return result
+  }
+
   insert(value) {
     const newNode = new Node(value)
     if (!this.root) {
@@ -83,3 +100,5 @@ console.log(bst.inOrder()); // [ 3, 5, 7, 10, 13, 15 ]
 
 
 console.log(bst.postOrder()); // [ 3, 7, 5, 13, 15, 10 ]
+
+console.log(bst.BFS())
