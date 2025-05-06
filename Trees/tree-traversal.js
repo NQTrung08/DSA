@@ -58,7 +58,7 @@ class BST {
   // nút 1 con => gán thằng con của nó thay nó
   // nút 2 con => tìm node lớn nhất trong phía trái của nó và gán thay nó thay nó
 
-
+  // BFS
   preOrder(node = this.root, result = []) {
     if (!node) return result
     result.push(node.value)
@@ -80,6 +80,18 @@ class BST {
     result.push(node.value)
     return result
   }
+
+  DFSPostOrder() {
+    let results = []
+    function treverse(currentNode) {
+      if(currentNode.left) treverse(currentNode.left)
+      if(currentNode.right) treverse(currentNode.right)
+      results.push(currentNode.value)
+    }
+
+    treverse(this.root)
+    return results
+  }
 }
 
 const bst = new BST();
@@ -92,7 +104,7 @@ bst.insert(13);
 
 //      10
 //   5     15
-//3    7  13
+//3    
 console.log(bst.preOrder()); // [ 10, 5, 3, 7, 15, 13 ]
 
 
@@ -100,5 +112,6 @@ console.log(bst.inOrder()); // [ 3, 5, 7, 10, 13, 15 ]
 
 
 console.log(bst.postOrder()); // [ 3, 7, 5, 13, 15, 10 ]
+console.log(bst.DFSPostOrder())
 
-console.log(bst.BFS())
+console.log(bst.BFS()) //[ 10, 5, 15, 3, 7, 13 ]
