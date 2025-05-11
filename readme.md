@@ -10,6 +10,16 @@
 
 ## 4. Stack - Queue
 
-## 5. Trees
+## 5. Trees (BST - Tree Traversal)
 
 ## 6. Hash Tables
+
+## 7. Heap
+
+## 8. Graphs
+
+## 9. Recursion
+
+## 10. Sort
+
+## 11. Dynamic Programming
