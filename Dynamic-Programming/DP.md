@@ -69,6 +69,7 @@ Bài toán Fibonacci:
 ✅ Ý nghĩa:
 
 - Thay vì tính lại từ đầu mỗi lần, ta lưu kết quả các bài toán con đã giải -> giúp tăng tốc độ đáng kể
+- ![overlapping](image.png)
 
 #### Optimal Substructure (Cấu trúc con tối ưu)
 
@@ -85,3 +86,50 @@ Và ta đã biết đường đi ngắn nhất từ A → B và từ B → C,
 ##### ✅ Ý nghĩa
 
 - Giúp ta xây dựng lời giải bài toán lớn từ các lời giải nhỏ hơn, mà không cần xét lại tất cả tổ hợp.
+
+## Giải bài toán fibonaci
+
+1. Bài toán fib có:
+   - ✅ CÓ thể chia nhỏ thành các bài toán con
+     - 👉 Fibonacci:
+       - Để tính fib(n), ta cần fib(n-1) và fib(n-2). Tức là: `fib(n) = fib(n-1) + fib(n-2)`
+   - ✅ Có tính chất chồng lặp (overlapping subproblems)
+     - Khi tính `fib(5)`, ta phải tính `fib(4) và fib(3)`.Nhưng `fib(4)` lại cần `fib(3) và fib(2)` → `fib(3)` bị tính `lặp lại nhiều lần`.
+   - ✅ Có tính chất con tối ưu (Optimal Substructure)
+     - Rõ ràng `fib(n)` phụ thuộc trực tiếp vào `fib(n-1) và fib(n-2)` –> tức là lời giải con được tái sử dụng nguyên vẹn.
+2. ví dụ
+   - ![fib](image-1.png)
+
+3. Độ phức tạp thuật toán
+   1. `Đối với đệ quy thông thường`:
+      - Mỗi bài toán con lại có 2 bài toán nhỏ được gọi => giống như cây nhị phân
+      - Độ phức tạp thời gian (Time Complexity): `O(2^n)`
+      - Độ phức tạp không gian (Space Complexity): `O(n)` do chiều sâu của stack khi đệ quy
+
+## Các kỹ thuật cache phổ biến
+
+### Memoization
+
+- là 1 kỹ thuật để lưu trữ kết quả các bài toán con đã tính, nhằm tránh tính lại chúng khi lặp lại.
+- Nó thường được áp dụng với đệ quy, giúp giảm tốc độ phức tạp thời gian từ cấp số nhân xuống tuyến tính hoặc đa thức.
+- Sau khi memoization: ![memoization for fib](image-2.png)
+
+### 🔥 1 số kỹ thuật khác
+
+| Kỹ thuật          | Áp dụng chính                      |
+|-------------------|------------------------------------|
+| `Memoization`     | `Hàm đệ quy, tính toán thuật toán` |
+| `In-memory`       | `Backend cache tạm`                |
+| `LocalStorage`    | `Frontend settings, token`         |
+| `HTTP Cache`      | `Tối ưu tải tài nguyên web`        |
+| `Redis/Memcached` | `Cache phân tán quy mô lớn`        |
+
+### 📌 Chiến lược cache phổ biến
+
+| Chiến lược         | Mô tả                                                             |
+|--------------------|-------------------------------------------------------------------|
+| **Cache-aside**    | App tự kiểm tra cache → không có thì lấy từ DB rồi ghi vào cache. |
+| **Write-through**  | Mỗi khi ghi vào DB → đồng thời ghi vào cache.                     |
+| **Write-back**     | Ghi vào cache trước → đồng bộ về DB sau.                          |
+| **Time-based TTL** | Cache tự động hết hạn sau một khoảng thời gian.                   |
+| **LRU Cache**      | Loại bỏ phần tử ít được dùng gần đây nhất khi hết dung lượng.     |
