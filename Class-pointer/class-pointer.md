@@ -71,3 +71,25 @@
             // khi thay đổi thuộc tính của đối tượng, giá trị trong cả persion và anotherPerson đều bị thay đổi
 
           ```
+
+## 3. Cơ chế Garbage Collection (GC)
+
+- `1 object` chỉ được coi `còn sống` nếu có `đường tham chiếu` từ **GC roots** tới nó.
+- GC roots = biến global, biến cục bộ đan active trong stack, closure, DOM object,...
+- Nếu object chỉ được tham chiếu bởi những object khác mà bản thân chúng không "reachable", thì cả chain đó sẽ bị GC dọn.
+- Một object được coi là `reachable` nếu có thể được truy cập từ GC roots.
+
+```js
+function test() {
+  let a = { value: 1 };
+  let b = { value: 2, next: a };
+
+  a = null; // bỏ tham chiếu đến object { value: 1 }
+  // nhưng object { value: 1 } vẫn còn được tham chiếu bởi b.next ⇒ chưa bị GC dọn
+
+  b = null; 
+  // giờ cả a lẫn b đều null ⇒ hai object kia không còn reachable nữa
+  // => GC sẽ thu hồi cả { value: 2, next: {...} } và { value: 1 }
+}
+
+```

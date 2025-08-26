@@ -26,7 +26,7 @@ function merge(a1, a2) {
   return combined
 }
 
-console.log(mergeSort([1,3,5], [2,6,9]))
+console.log(merge([1,3,5], [2,6,9]))
 
 
 // Merge sort with recursive
