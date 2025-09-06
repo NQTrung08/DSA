@@ -64,7 +64,28 @@ class LinkedList {
   //   |   merging process.                                |
   //   | - We traverse both lists, comparing each node.    |
   //   | - The smaller node is added to the new list.      |
-  //   | - Finally, the remaining nodes are added.         |
+  //   | - Finally, the remaining nodes are added.  
+  // 
+    // Dùng dummy node để dễ nối các node, tránh xử lý riêng cho node đầu.
+
+    // Dùng 2 con trỏ (thisHead, otherHead) duyệt song song:
+
+    // So sánh giá trị.
+
+    // Nối node nhỏ hơn vào sau current.
+
+    // Tiến con trỏ tương ứng.
+
+    // Sau vòng lặp, nối phần còn lại của list nào chưa hết.
+
+    // Cập nhật lại:
+
+    // this.head = dummy.next
+
+    // this.tail = node cuối cùng vừa nối
+
+    // this.length = tổng số node của 2 list.       |
+    
   //   +===================================================+
 
   merge(otherList) {

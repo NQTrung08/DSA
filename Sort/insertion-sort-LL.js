@@ -66,7 +66,24 @@ class LinkedList {
   //   |   by one into the sorted part.                    |
   //   | - The position to insert the current node is      |
   //   |   found by traversing the sorted part.   
-  // 4 2 6 5 1         |
+  //                                                       |
+  // 🎯 Mục tiêu
+    // Ta cần sắp xếp một danh sách liên kết đơn (singly linked list) theo thứ tự tăng dần bằng giải thuật Insertion Sort, trực tiếp trên danh sách (không tạo mảng phụ).
+    // Nguyên lý chung của Insertion Sort:
+
+    // Chia danh sách thành 2 phần:
+
+      // Phần đã sắp xếp (ban đầu chỉ có node đầu tiên).
+
+      // Phần chưa sắp xếp (các node còn lại).
+
+    // Lấy từng node trong phần chưa sắp xếp ra.
+
+    // Chèn node đó vào đúng vị trí trong phần đã sắp xếp.
+
+    // Lặp lại cho đến khi hết phần chưa sắp xếp.
+
+    // Kết thúc, danh sách được sắp xếp đúng, head trỏ vào phần tử đầu tiên, tail trỏ vào phần tử cuối cùng.
   //   +===================================================+
   insertionSort() {
     if(this.length < 2) return
