@@ -62,3 +62,5 @@ function insertSort(array) {
   }
   return array
 }
+
+console.log(insertSort([4,2,6,5,1,3]))
