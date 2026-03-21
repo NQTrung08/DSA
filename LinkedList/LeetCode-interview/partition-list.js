@@ -1,4 +1,9 @@
 // Phân vùng danh sách
+/**
+ * 
+  yêu cầu sắp xếp lại một danh sách liên kết (linked list) sao cho tất cả các nút có giá trị nhỏ hơn x
+  đứng trước các nút có giá trị lớn hơn hoặc bằng x, trong khi vẫn giữ nguyên thứ tự tương đối của các nút trong mỗi phân vùng
+*/
 
 class Node {
   constructor(value){

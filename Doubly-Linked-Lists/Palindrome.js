@@ -69,6 +69,7 @@ class DoublyLinkedList {
   }
 
   // WRITE THE ISPALINDROME METHOD HERE //
+  // kiểm tra chuỗi có đối xứng hay không
 
   isPalindrome() {
     let forward = this.head;
